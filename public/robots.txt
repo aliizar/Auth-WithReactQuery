@@ -1,3 +1,4 @@
-# https://www.robotstxt.org/robotstxt.html
+# This file tells search engines which pages they should not visit.
 User-agent: *
-Disallow:
+Disallow: /static/
+Disallow: /build/
