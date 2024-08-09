@@ -23,16 +23,16 @@ const Fetched = () => {
     const newSkip = Math.max(skip + LimitCount, 0);
     setsearchPrams({ limit: Limit, skip: newSkip, search, category });
   };
-
   const FetchData = async () => {
-    let url = `https://dummyjson.com/products?limit=${Limit}&skip=${skip}`;
+    let baseURL = process.env.REACT_APP_API_BASE_URL;
+    let url = `${baseURL}/products?limit=${Limit}&skip=${skip}`;
 
     if (category) {
-      url = `https://dummyjson.com/products/category/${category}?limit=${Limit}&skip=${skip}`;
+      url = `${baseURL}/products/category/${category}?limit=${Limit}&skip=${skip}`;
     }
-
+    
     if (search) {
-      url = `https://dummyjson.com/products/search?limit=${Limit}&skip=${skip}&q=${search}`;
+      url = `${baseURL}/products/search?limit=${Limit}&skip=${skip}&q=${search}`;
     }
 
     const response = await fetch(url);
